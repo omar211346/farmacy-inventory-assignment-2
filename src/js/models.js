@@ -5,7 +5,7 @@ export class Medicine {
         this.productId = uuidv4(); // Unik ID
         this.productName = productName;
         this.manufacturer = manufacturer;
-        this.expirationDate = new Date(expirationDate).toISOString(); // ISO 8601-format
+        this.expirationDate = new Date(expirationDate).toISOString(); 
         this.quantity = quantity;
     }
 }
