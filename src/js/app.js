@@ -3,7 +3,7 @@ import { MedicineManager } from "./medicineManager.js";
 import { UI } from "./ui.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-
+  UI.displayMedicines(); 
 
   document
     .getElementById("medicine-table-body")
@@ -11,18 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document
     .getElementById("medicine-form")
-    .addEventListener("submit", function (event) {
-     
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
 
-      const name = document.getElementById("name").value;
-      const manufacturer = document.getElementById("manufacturer").value;
+      const name = document.getElementById("name").value.trim();
+      const manufacturer = document.getElementById("manufacturer").value.trim();
       const expirationDate = document.getElementById("expiration").value;
-      const quantity = document.getElementById("quantity").value; 
+      const quantity = parseInt(document.getElementById("quantity").value);
 
-      const newMed = new Medicine(name, manufacturer); 
+      if (!name || !manufacturer || !expirationDate || isNaN(quantity)) {
+        alert("Please fill out all fields correctly.");
+        return;
+      }
 
-      MedicineManager.addMedicine(newMed);
+      const newMedicine = new Medicine(name, manufacturer, expirationDate, quantity);
 
-      
+      MedicineManager.addMedicine(newMedicine);
+      UI.displayMedicines();
+      this.reset();
     });
 });
+
