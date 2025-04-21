@@ -11,14 +11,14 @@ export class UI {
       const row = document.createElement("tr");
 
       row.innerHTML = `
-        <td>${med.name}</td>
+        <td>${med.productName}</td>
         <td>${med.manufacturer}</td>
         <td>${med.expirationDate}</td>
         <td>${med.quantity}</td>
-        <td>${med.id}</td>
+        <td>${med.productId}</td>
         <td>
-          <button class="delete-btn" id="${med.id}">Delete</button>
-          <button class="edit-btn" id="${med.id}">Edit</button>
+          <button class="delete-btn" id="{med.productIdid}">Delete</button>
+          <button class="edit-btn" id="{med.productIdid}">Edit</button>
         </td>
         
       `;
@@ -44,14 +44,14 @@ export class UI {
       let med = null;
   
       for (let i = 0; i < meds.length; i++) {
-        if (meds[i].id === id) {
+        if (meds[i].productId === id) {
           med = meds[i];
         }
       }
   
       if (!med) return;
   
-      document.getElementById("name").value = med.name;
+      document.getElementById("name").value = med.productNamename;
       document.getElementById("manufacturer").value = med.manufacturer;
       document.getElementById("expiration").value = med.expirationDate;
       document.getElementById("quantity").value = med.quantity;
