@@ -18,7 +18,9 @@ export class UI {
         <td>${med.id}</td>
         <td>
           <button class="delete-btn" data-id="${med.id}">Delete</button>
+          <button class="edit-btn" data-id="${med.id}">Edit</button>
         </td>
+        
       `;
 
       tableBody.appendChild(row);
