@@ -5,7 +5,7 @@ export class UI {
     const medicineList = MedicineManager.getMedicines();
     const tableBody = document.getElementById("medicine-table-body");
 
-    tableBody.innerHTML = ""; // Rens tabellen først
+    tableBody.innerHTML = ""; 
 
     medicineList.forEach((med) => {
       const row = document.createElement("tr");
@@ -17,8 +17,8 @@ export class UI {
         <td>${med.quantity}</td>
         <td>${med.productId}</td>
         <td>
-          <button class="delete-btn" id="{med.productIdid}">Delete</button>
-          <button class="edit-btn" id="{med.productIdid}">Edit</button>
+          <button class="delete-btn" id="delete-${med.productId}">Delete</button>
+          <button class="edit-btn" id="edit-${med.productId}">Edit</button>
         </td>
         
       `;
@@ -51,7 +51,7 @@ export class UI {
   
       if (!med) return;
   
-      document.getElementById("name").value = med.productNamename;
+      document.getElementById("name").value = med.productName;
       document.getElementById("manufacturer").value = med.manufacturer;
       document.getElementById("expiration").value = med.expirationDate;
       document.getElementById("quantity").value = med.quantity;
@@ -61,5 +61,4 @@ export class UI {
     }
   }
   
-
 }

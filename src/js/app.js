@@ -5,9 +5,11 @@ import { UI } from "./ui.js";
 document.addEventListener("DOMContentLoaded", () => {
   UI.displayMedicines(); 
 
-  document
-    .getElementById("medicine-table-body")
-    .addEventListener("click", UI.handleDeleteClick);
+  const table = document.getElementById("medicine-table-body");
+    table.addEventListener("click", function (event) {
+  UI.handleDeleteClick(event);
+  UI.handleEditClick(event);
+});
 
   document
     .getElementById("medicine-form")
@@ -23,12 +25,23 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Please fill out all fields correctly.");
         return;
       }
-
-      const newMedicine = new Medicine(name, manufacturer, expirationDate, quantity);
-
+      const form = document.getElementById("medicine-form")
+      const editId = form.getAttribute("data-edit-id");
+      if (editId) {
+        const updatedMedicine = new Medicine(name, manufacturer, expirationDate, quantity, editId); 
+        MedicineManager.updateMedicine(editId, updatedMedicine);
+        UI.displayMedicines();
+      
+        form.removeAttribute("data-edit-id");
+        form.querySelector("button[type='submit']").textContent = "Add Medicine";
+      }
+      
+          else{
+            const newMedicine = new Medicine(name, manufacturer, expirationDate, quantity);
       MedicineManager.addMedicine(newMedicine);
-      UI.displayMedicines();
-      this.reset();
+      UI.displayMedicines();}
+      
+      form.reset();
     });
 });
 
