@@ -8,23 +8,48 @@ export class UI {
     tableBody.innerHTML = ""; 
 
     medicineList.forEach((med) => {
-      const row = document.createElement("tr");
-
-      row.innerHTML = `
-        <td>${med.productName}</td>
-        <td>${med.manufacturer}</td>
-        <td>${med.expirationDate}</td>
-        <td>${med.quantity}</td>
-        <td>${med.productId}</td>
-        <td>
-          <button class="delete-btn" id="delete-${med.productId}">Delete</button>
-          <button class="edit-btn" id="edit-${med.productId}">Edit</button>
-        </td>
-        
-      `;
-
-      tableBody.appendChild(row);
-    });
+        const row = document.createElement("tr");
+      
+        const nameCell = document.createElement("td");
+        nameCell.textContent = med.productName;
+      
+        const manufacturerCell = document.createElement("td");
+        manufacturerCell.textContent = med.manufacturer;
+      
+        const expirationCell = document.createElement("td");
+        expirationCell.textContent = med.expirationDate;
+      
+        const quantityCell = document.createElement("td");
+        quantityCell.textContent = med.quantity;
+      
+        const idCell = document.createElement("td");
+        idCell.textContent = med.productId;
+      
+        const actionsCell = document.createElement("td");
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.classList.add("delete-btn");
+        deleteBtn.id = `delete-${med.productId}`;
+      
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "Edit";
+        editBtn.classList.add("edit-btn");
+        editBtn.id = `edit-${med.productId}`;
+      
+        actionsCell.appendChild(deleteBtn);
+        actionsCell.appendChild(editBtn);
+      
+        row.appendChild(nameCell);
+        row.appendChild(manufacturerCell);
+        row.appendChild(expirationCell);
+        row.appendChild(quantityCell);
+        row.appendChild(idCell);
+        row.appendChild(actionsCell);
+      
+       
+        tableBody.appendChild(row);
+      });
+      
   }
 
   static handleDeleteClick(event) {
