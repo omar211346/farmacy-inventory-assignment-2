@@ -1,6 +1,6 @@
 export class Medicine {
-    constructor(productName, manufacturer, expirationDate, quantity) {
-      this.productId = productId || Medicine.generateId();
+    constructor(productName, manufacturer, expirationDate, quantity, productId = null) {
+      this.productId = productId || Medicine.generateId(); 
       this.productName = productName;
       this.manufacturer = manufacturer;
       this.expirationDate = expirationDate;
@@ -11,4 +11,3 @@ export class Medicine {
       return "med-" + Date.now();
     }
   }
-  
