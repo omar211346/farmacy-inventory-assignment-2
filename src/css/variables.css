@@ -7,7 +7,7 @@
     
     --font-size-base: 1rem;
     --font-size-lg: 1.25rem;
-    --font-family: 'Arial', sans-serif;
+    
   
 
     --spacing-sm: 0.5rem;
@@ -19,4 +19,7 @@
   
     
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    --font-primary: "Lato", sans-serif;
+    --font-secondary: "Roboto", sans-serif; 
   }
