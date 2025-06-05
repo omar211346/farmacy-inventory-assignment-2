@@ -15,3 +15,9 @@ Delete entries
 Use localStorage  to persist data
 Organize JavaScript using modules
 stay within the design and logic taught in the course
+
+netlify link: 
+https://classy-snickerdoodle-b64e0c.netlify.app/
+
+github link: 
+https://github.com/omar211346/farmacy-inventory-assignment-2.git
